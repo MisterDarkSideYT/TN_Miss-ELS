@@ -38,7 +38,7 @@ end
 function GetCarHash(car)
     if not car then return false end
 
-    for k, v in pairs(kjxmlData) do
+    for k, v in pairs(elsxmlData) do
         if GetEntityModel(car) == GetHashKey(k) and v.extras ~= nil then return k end
     end
 
@@ -83,9 +83,9 @@ function ConvertStageToPattern(stage)
 end
 
 function CanControlELS()
-    if not kjxmlData then
+    if not elsxmlData then
         -- wait for the data to load
-        while not kjxmlData do Citizen.Wait(0) end
+        while not elsxmlData do Citizen.Wait(0) end
     end
 
     local ped = PlayerPedId()

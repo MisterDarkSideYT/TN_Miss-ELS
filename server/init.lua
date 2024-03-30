@@ -1,4 +1,4 @@
-kjxmlData = {}
+elsxmlData = {}
 local systemOS = nil
 
 local function parseObjSet(data, fileName)
@@ -92,12 +92,12 @@ AddEventHandler('onResourceStart', function(name)
     end
 
     -- send the ELS data to all clients
-    TriggerClientEvent('MISS-ELS:sendELSInformation', -1, kjxmlData)
+    TriggerClientEvent('MISS-ELS:sendELSInformation', -1, elsxmlData)
 end)
 
 RegisterServerEvent('MISS-ELS:requestELSInformation')
 AddEventHandler('MISS-ELS:requestELSInformation', function()
-    TriggerClientEvent('MISS-ELS:sendELSInformation', source, kjxmlData)
+    TriggerClientEvent('MISS-ELS:sendELSInformation', source, elsxmlData)
 end)
 
 RegisterNetEvent('baseevents:enteredVehicle')
