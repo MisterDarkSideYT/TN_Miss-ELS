@@ -1,5 +1,3 @@
-shared_script '@URP-MaandelijkseBonus/shared_fg-obfuscated.lua'
-shared_script '@URP-MaandelijkseBonus/ai_module_fg-obfuscated.lua'
 fx_version 'cerulean'
 game 'gta5'
 author 'matsn0w'
