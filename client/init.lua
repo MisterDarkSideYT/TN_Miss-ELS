@@ -1,5 +1,5 @@
 kjEnabledVehicles = {}
-elsxmlData = nil
+kjxmlData = nil
 
 AddEventHandler('onClientResourceStart', function(name)
     if not Config then
@@ -17,7 +17,7 @@ AddEventHandler('onClientResourceStart', function(name)
 end)
 
 RegisterNetEvent('MISS-ELS:sendELSInformation')
-AddEventHandler('MISS-ELS:sendELSInformation', function(information) elsxmlData = information end)
+AddEventHandler('MISS-ELS:sendELSInformation', function(information) kjxmlData = information end)
 
 RegisterNetEvent('MISS-ELS:initVehicle')
 AddEventHandler('MISS-ELS:initVehicle', function()

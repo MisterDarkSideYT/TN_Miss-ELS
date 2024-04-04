@@ -7,7 +7,7 @@ local function AddHighBeamMenuEntry(vehicle)
 end
 
 local function AddStaticsEntries(vehicle)
-    local statics = elsxmlData[GetCarHash(vehicle)].statics
+    local statics = kjxmlData[GetCarHash(vehicle)].statics
 
     for extra, info in spairs(statics.extras) do
         local name = info.name or ('Extra ' .. extra)

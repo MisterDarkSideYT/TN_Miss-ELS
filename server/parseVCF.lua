@@ -197,5 +197,5 @@ function ParseVCF(xml, fileName)
 
     end
 
-    elsxmlData[fileName] = vcf
+    kjxmlData[fileName] = vcf
 end

@@ -50,7 +50,7 @@ local function HandleHorn()
     if not vehicle or not PedIsDriver(vehicle) then return end
 
     -- get the horn info from the VCF
-    local mainHorn = elsxmlData[GetCarHash(vehicle)].sounds.mainHorn
+    local mainHorn = kjxmlData[GetCarHash(vehicle)].sounds.mainHorn
 
     -- the custom horn is disabled
     if not mainHorn or not mainHorn.allowUse then return end
@@ -92,7 +92,7 @@ local function HandleLightStage(stage)
         -- turn lights on
         ToggleLights(vehicle, stage, true)
 
-        if stage == 'primary' and elsxmlData[GetCarHash(vehicle)].sounds.nineMode then
+        if stage == 'primary' and kjxmlData[GetCarHash(vehicle)].sounds.nineMode then
             -- play 999 sound effect
             SendNUIMessage({ transactionType = 'playSound', transactionFile = '999mode', transactionVolume = 1.0 })
         end
@@ -111,7 +111,7 @@ local function HandleSiren(siren)
 
     if (not sirenOn) or (sirenOn and siren and siren ~= currentSiren) then
         -- siren only works if it is enabled
-        if siren and not elsxmlData[GetCarHash(vehicle)].sounds['srnTone' .. siren].allowUse then return end
+        if siren and not kjxmlData[GetCarHash(vehicle)].sounds['srnTone' .. siren].allowUse then return end
 
         -- turn the (next) siren on
         TriggerServerEvent('MISS-ELS:setSirenState', siren or 1)
@@ -151,7 +151,7 @@ local function NextSiren()
     if next > 4 then next = 1 end
 
     -- check if the next siren is allowed
-    while not elsxmlData[GetCarHash(vehicle)].sounds['srnTone' .. next].allowUse do
+    while not kjxmlData[GetCarHash(vehicle)].sounds['srnTone' .. next].allowUse do
         -- check if the maximum is reached, not even one siren is allowed!
         if count == max then return end
 
@@ -235,12 +235,12 @@ AddEventHandler('onClientResourceStart', function(name)
 
     Citizen.CreateThread(function()
         while true do
-            if not elsxmlData then
+            if not kjxmlData then
                 -- request ELS data
                 TriggerServerEvent('MISS-ELS:requestELSInformation')
 
                 -- wait for the data to load
-                while not elsxmlData do Citizen.Wait(0) end
+                while not kjxmlData do Citizen.Wait(0) end
             end
 
             -- wait untill the player is in a vehicle
